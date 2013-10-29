@@ -1,0 +1,16 @@
+{
+  "name": "markdo",
+  "version": "0.0.0",
+  "main": "markdo.js",
+  "dependencies": {
+    "showdown": "~0.3.1"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
