@@ -2,6 +2,7 @@
   "name": "markdo",
   "main": "index.html",
   "dependencies": {
-    "marked": "~0.2.9"
+    "marked": "~0.2.9",
+    "underscore": "~1.5.2"
   }
 }

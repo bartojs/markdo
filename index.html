@@ -4,34 +4,29 @@
         <title>Markdo - mardown viewer for the desktop</title>
     </head>
     <body>
-        <script>
+	<script>
+            var _ = require('underscore');
             var marked = require('marked');
             marked.setOptions({gfm:true});
             var files = require('nw.gui').App.argv;
-            for (var i in files)
-            {
-                var file = files[i];
+            _.each(files, function (file) {
                 var markdown = require('fs').readFile(file, 'utf8', function (err, data) {
                     
-                    var h = window.document.createElement('h4');
-                    h.textContent = file;
-                    window.document.body.appendChild(h);
-                    var hr = window.document.createElement('hr');
-                    window.document.body.appendChild(hr);
+                var h = window.document.createElement('h4');
+                h.textContent = file;
+                window.document.body.appendChild(h);
+                var hr = window.document.createElement('hr');
+                window.document.body.appendChild(hr);
                     
-                    var p = window.document.createElement('p');
-                    if (err)
-                    {
-                        p.innerHTML = '<strong>ERROR! : ' + err + '</strong>';
-                    }
-                    else
-                    {
-                        p.innerHTML = marked(data);
-                    }
+                var p = window.document.createElement('p');
+                if (err)
+                    p.innerHTML = '<strong>ERROR! : ' + err + '</strong>';
+                else
+                    p.innerHTML = marked(data);
 
-                    window.document.body.appendChild(p);
+                window.document.body.appendChild(p);
                 });
-            }
+            });
         </script>
     </body>
 </html>
