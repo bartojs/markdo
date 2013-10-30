@@ -2,24 +2,22 @@
 <html>
     <head>
         <title>Markdo - mardown viewer for the desktop</title>
-        <script src="bower_components/showdown/compressed/showdown.js"></script>
-        <script src="bower_components/showdown/compressed/extensions/github.js"></script>
     </head>
     <body>
         <script>
-            //var requirejs = require('requirejs');
-            //requirejs.config({baseUrl: __dirname + 'bower_components/showdown/compressed', nodeRequire:require});
-
-            var converter = new Showdown.converter();
+            var marked = require('marked');
+            marked.setOptions({gfm:true});
             var files = require('nw.gui').App.argv;
             for (var i in files)
             {
                 var file = files[i];
                 var markdown = require('fs').readFile(file, 'utf8', function (err, data) {
                     
-                    var h1 = window.document.createElement('h1');
-                    h1.textContent = file;
-                    window.document.body.appendChild(h1);
+                    var h = window.document.createElement('h4');
+                    h.textContent = file;
+                    window.document.body.appendChild(h);
+                    var hr = window.document.createElement('hr');
+                    window.document.body.appendChild(hr);
                     
                     var p = window.document.createElement('p');
                     if (err)
@@ -28,7 +26,7 @@
                     }
                     else
                     {
-                        p.innerHTML = converter.makeHtml(data);
+                        p.innerHTML = marked(data);
                     }
 
                     window.document.body.appendChild(p);

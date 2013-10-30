@@ -1,4 +1,7 @@
 {
   "name": "markdo",
-  "main": "index.html"
+  "main": "index.html",
+  "dependencies": {
+    "marked": "~0.2.9"
+  }
 }
