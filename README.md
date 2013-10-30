@@ -8,9 +8,9 @@ Usage
 
 Mac:
 
-markdo myfile.md
+    markdo myfile.md
 
 Windows:
 
-markdo.exe myfile.md
+    markdo.exe myfile.md
 
